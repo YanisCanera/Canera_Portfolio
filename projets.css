@@ -3,9 +3,8 @@ main {
   background-color: #14120f;   
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+
   color: white;
-  padding-bottom: 350px;
 }
 main::before {
   content: '';
