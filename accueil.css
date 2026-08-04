@@ -1,6 +1,6 @@
 main {
   position: relative;
-  background-image: url('../Images/Freak Squad/EA.png');
+background-image: url('Images/Freak Squad/EA.png');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
