@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild 31 - Portfolio Canera Yanis</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+
+<header>
+    <h1>Mon portfolio</h1>
+    <nav>
+        <a href="index.html" data-i18n="nav.accueil">Accueil</a>
+        <a href="index.html#projets-preview" data-i18n="nav.projets">Projets</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang-switcher">
+        <button data-lang="fr" class="lang-btn active">FR</button>
+        <button data-lang="en" class="lang-btn">EN</button>
+    </div>
+</header>
+
+<main>
+    <section class="about"><h1>Wild 31</h1></section>
+    
+
+    <div class="galerie">
+        <button class="fleche fleche-gauche" aria-label="Image précédente">←</button>
+        <img id="image-principale" src="Images/Wild31/Illustration.png" alt="Wild 31">
+        <button class="fleche fleche-droite" aria-label="Image suivante">→</button>
+    </div>
+
+    <div class="miniatures sans-fondu">
+        <img src="Images/Wild31/Illustration.png" class="miniature active">
+        <img src="Images/Wild31/idle.png" class="miniature">
+        <img src="Images/Wild31/boss1.png" class="miniature">
+        <img src="Images/Wild31/Run.png" class="miniature">
+        <img src="Images/Wild31/attack.png" class="miniature">
+        
+       
+    </div>
+
+    <section class="about">
+        <h2 data-i18n="projet.about">À propos du projet</h2>
+        <p data-i18n="w31.desc1">Wild-31 est un jeu 3D de combat où le joueur doit utiliser tout son arsenal de compétences pour éliminer les vagues d'ennemis qui se dressent sur son chemin.</p>
+        <p data-i18n="w31.desc2">Dans une Marseille dystopique rongée par la violence et la corruption, un quartier inspiré du Cours Julien est tombé entre les mains d'une mafia mystérieuse, dont les membres dissimulent leur identité derrière des masques d'animaux. Vous incarnez WILD-31, un singe humanoïde marqué par le chaos, déterminé à faire tomber cette organisation. À travers des ruelles taguées et les toits brûlants de la ville, chaque combat vous rapproche de la vérité. Mais derrière les crocs et les griffes se cache un ennemi bien plus redoutable : l'être humain lui-même.</p>
+        <table class="infos-projet">
+            <tr><th data-i18n="projet.type">Type de projet</th><td data-i18n="w31.type">Jeu de combat de rue 3D</td></tr>
+            <tr><th data-i18n="projet.date">Date</th><td>2025</td></tr>
+            <tr><th data-i18n="projet.duree">Durée</th><td data-i18n="w31.duree">9 semaines</td></tr>
+            <tr><th data-i18n="projet.role">Rôle</th><td data-i18n="w31.role">Programmeur gameplay et concepteur technique – génération procédurale de contenu (GPC)</td></tr>
+            <tr><th data-i18n="projet.equipe">Équipe</th><td data-i18n="w31.equipe">10 Programmeurs &amp; 8 Game Artists</td></tr>
+            <tr><th data-i18n="projet.langage">Langage &amp; Moteur</th><td data-i18n="w31.langage">C++/Unreal Engine</td></tr>
+            <tr><th data-i18n="projet.tools">External tools</th><td data-i18n="w31.tools">Wwise</td></tr>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://github.com/YanisCanera" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/canerayanis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:yanis.canera.dev@gmail.com">Contact</a>
+    </div>
+    <p data-i18n="footer.copyright">&copy; 2026 portfolio Canera Yanis. Tous droits réservés.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    let principale = document.getElementById('image-principale');
+    const miniatures = document.querySelectorAll('.miniatures img, .miniatures video');
+    let index = 0;
+
+    function afficher(i) {
+        index = (i + miniatures.length) % miniatures.length;
+        const elementActuel = miniatures[index];
+
+        let nouveau;
+
+        if (elementActuel.tagName === 'VIDEO') {
+
+            elementActuel.controls = false;
+            elementActuel.pause();
+            elementActuel.currentTime = 0;
+
+            nouveau = document.createElement('video');
+            nouveau.id = 'image-principale';
+            nouveau.src = elementActuel.src;
+            nouveau.controls = true;
+            nouveau.autoplay = false;
+            nouveau.className = principale.className;
+
+        } else {
+            nouveau = document.createElement('img');
+            nouveau.id = 'image-principale';
+            nouveau.src = elementActuel.src;
+            nouveau.className = principale.className;
+        }
+
+        // Remplacement
+        principale.replaceWith(nouveau);
+
+        // 🔥 Mise à jour de la référence
+        principale = nouveau;
+
+        // Mise à jour des miniatures
+        miniatures.forEach(el => el.classList.remove('active'));
+        miniatures[index].classList.add('active');
+    }
+
+    miniatures.forEach((el, i) => el.addEventListener('click', () => afficher(i)));
+    document.querySelector('.fleche-gauche').addEventListener('click', () => afficher(index - 1));
+    document.querySelector('.fleche-droite').addEventListener('click', () => afficher(index + 1));
+});
+
+</script>
+
+<script src="trad.js"></script>
+</body>
+</html>

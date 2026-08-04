@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crush Cars - Portfolio Canera Yanis</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+
+<header>
+    <h1>Mon portfolio</h1>
+    <nav>
+        <a href="index.html" data-i18n="nav.accueil">Accueil</a>
+        <a href="index.html#projets-preview" data-i18n="nav.projets">Projets</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang-switcher">
+        <button data-lang="fr" class="lang-btn active">FR</button>
+        <button data-lang="en" class="lang-btn">EN</button>
+    </div>
+</header>
+
+<main>
+    <section class="about"><h1>Crush Cars</h1></section>
+    
+
+    <div class="galerie">
+        <button class="fleche fleche-gauche" aria-label="Image précédente">←</button>
+        <img id="image-principale" src="Images/Crush Cars/Menu.png" alt="Magical Mystery">
+        <button class="fleche fleche-droite" aria-label="Image suivante">→</button>
+    </div>
+
+    <div class="miniatures sans-fondu">
+        <img src="Images/Crush Cars/Menu.png" class="miniature active">
+        <img src="Images/Crush Cars/Loading.png" class="miniature">
+        <img src="Images/Crush Cars/Selection.png" class="miniature">
+        <img src="Images/Crush Cars/InGame1.png" class="miniature">
+        <img src="Images/Crush Cars/InGame2.png" class="miniature">
+        <img src="Images/Crush Cars/Ingame3.png" class="miniature">
+    </div>
+
+    <section class="about">
+        <h2 data-i18n="projet.about">À propos du projet</h2>
+        <p data-i18n="cc.desc1">Crush Cars est un jeu d'arène de type Mario Kart, où les joueurs peuvent choisir parmi trois personnages différents et s'affronter sur trois cartes uniques.
+    Vous pouvez jouer en local en écran partagé jusqu'à quatre joueurs.</p>
+        <table class="infos-projet">
+            <tr><th data-i18n="projet.type">Type de projet</th><td data-i18n="cc.type">Course d'arène</td></tr>
+            <tr><th data-i18n="projet.date">Date</th><td>2024</td></tr>
+            <tr><th data-i18n="projet.duree">Durée</th><td data-i18n="cc.duree">6 semaines</td></tr>
+            <tr><th data-i18n="projet.role">Rôle</th><td data-i18n="cc.role">Programmeur gameplay / UI</td></tr>
+            <tr><th data-i18n="projet.equipe">Équipe</th><td data-i18n="cc.equipe">13 Programmeurs &amp; 11 Game Artists</td></tr>
+            <tr><th data-i18n="projet.langage">Langage &amp; Moteur</th><td data-i18n="cc.langage">C# Unity</td></tr>
+            <tr><th data-i18n="projet.tools">External tools</th><td data-i18n="cc.tools">Photon</td></tr>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://github.com/YanisCanera" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/canerayanis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:yanis.canera.dev@gmail.com">Contact</a>
+    </div>
+    <p data-i18n="footer.copyright">&copy; 2026 portfolio Canera Yanis. Tous droits réservés.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    let principale = document.getElementById('image-principale');
+    const miniatures = document.querySelectorAll('.miniatures img, .miniatures video');
+    let index = 0;
+
+    function afficher(i) {
+        index = (i + miniatures.length) % miniatures.length;
+        const elementActuel = miniatures[index];
+
+        let nouveau;
+
+        if (elementActuel.tagName === 'VIDEO') {
+
+            elementActuel.controls = false;
+            elementActuel.pause();
+            elementActuel.currentTime = 0;
+
+            nouveau = document.createElement('video');
+            nouveau.id = 'image-principale';
+            nouveau.src = elementActuel.src;
+            nouveau.controls = true;
+            nouveau.autoplay = false;
+            nouveau.className = principale.className;
+
+        } else {
+            nouveau = document.createElement('img');
+            nouveau.id = 'image-principale';
+            nouveau.src = elementActuel.src;
+            nouveau.className = principale.className;
+        }
+
+        // Remplacement
+        principale.replaceWith(nouveau);
+
+        // 🔥 Mise à jour de la référence
+        principale = nouveau;
+
+        // Mise à jour des miniatures
+        miniatures.forEach(el => el.classList.remove('active'));
+        miniatures[index].classList.add('active');
+    }
+
+    miniatures.forEach((el, i) => el.addEventListener('click', () => afficher(i)));
+    document.querySelector('.fleche-gauche').addEventListener('click', () => afficher(index - 1));
+    document.querySelector('.fleche-droite').addEventListener('click', () => afficher(index + 1));
+});
+</script>
+
+<script src="trad.js"></script>
+</body>
+</html>

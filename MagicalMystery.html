@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Mystery - Portfolio Canera Yanis</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+
+<header>
+    <h1>Mon portfolio</h1>
+    <nav>
+        <a href="index.html" data-i18n="nav.accueil">Accueil</a>
+        <a href="index.html#projets-preview" data-i18n="nav.projets">Projets</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang-switcher">
+        <button data-lang="fr" class="lang-btn active">FR</button>
+        <button data-lang="en" class="lang-btn">EN</button>
+    </div>
+</header>
+
+<main>
+    <section class="about"><h1>Magical Mystery</h1></section>
+    
+
+    <div class="galerie">
+        <button class="fleche fleche-gauche" aria-label="Image précédente">←</button>
+        <img id="image-principale" src="Images/Simply Magic/Illustration.png" alt="Magical Mystery">
+        <button class="fleche fleche-droite" aria-label="Image suivante">→</button>
+    </div>
+
+    <div class="miniatures">
+        <img src="Images/Simply Magic/Illustration.png" class="miniature active">
+        <img src="Images/Simply Magic/Menu.png" class="miniature">
+        <img src="Images/Simply Magic/InGame1.png" class="miniature">
+        <img src="Images/Simply Magic/InGame2.png" class="miniature">
+        <img src="Images/Simply Magic/InGame3.png" class="miniature">
+        <img src="Images/Simply Magic/MiniGame1.png" class="miniature">
+        <img src="Images/Simply Magic/MiniGame2.png" class="miniature">
+        <img src="Images/Simply Magic/MiniGame3.jpg" class="miniature">
+        <img src="Images/Simply Magic/MiniGame4.png" class="miniature">
+        <img src="Images/Simply Magic/EndCinematic1.png" class="miniature">
+        <img src="Images/Simply Magic/EndCinematic2.png" class="miniature">
+    </div>
+
+    <section class="about">
+    <h2 data-i18n="projet.about">À propos du projet</h2>
+    <p data-i18n="mm.desc1">Magical Mystery est un jeu d'aventure au point et clic...</p>
+    <p data-i18n="mm.desc2">Le joueur part explorer l'ancien manoir...</p>
+
+    <table class="infos-projet">
+        <tr><th data-i18n="projet.type">Type de projet</th><td data-i18n="mm.type">Point &amp; Click Isométrique</td></tr>
+        <tr><th data-i18n="projet.date">Date</th><td>2022</td></tr>
+        <tr><th data-i18n="projet.duree">Durée</th><td data-i18n="mm.duree">4 semaines</td></tr>
+        <tr><th data-i18n="projet.role">Rôle</th><td data-i18n="mm.role">Programmeur gameplay</td></tr>
+        <tr><th data-i18n="projet.equipe">Équipe</th><td data-i18n="mm.equipe">11 Programmeurs &amp; 8 Game Artists</td></tr>
+        <tr><th data-i18n="projet.langage">Langage &amp; Moteur</th><td data-i18n="mm.langage">C / CSFML Library</td></tr>
+        <tr><th data-i18n="projet.tools">External tools</th><td>-</td></tr>
+    </table>
+</section>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://github.com/YanisCanera" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/canerayanis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:yanis.canera.dev@gmail.com">Contact</a>
+    </div>
+    <p data-i18n="footer.copyright">&copy; 2026 portfolio Canera Yanis. Tous droits réservés.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const principale = document.getElementById('image-principale');
+    const miniatures = document.querySelectorAll('.miniatures img');
+    let index = 0;
+
+   function afficher(i) {
+    index = (i + miniatures.length) % miniatures.length;
+    principale.src = miniatures[index].src;
+    miniatures.forEach(img => img.classList.remove('active'));
+    miniatures[index].classList.add('active');
+
+    miniatures[index].scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center', 
+        block: 'nearest'
+    });
+}
+
+    miniatures.forEach((img, i) => img.addEventListener('click', () => afficher(i)));
+    document.querySelector('.fleche-gauche').addEventListener('click', () => afficher(index - 1));
+    document.querySelector('.fleche-droite').addEventListener('click', () => afficher(index + 1));
+});
+</script>
+
+<script src="trad.js"></script>
+</body>
+</html>

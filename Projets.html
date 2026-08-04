@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freak Squad - Portfolio Canera Yanis</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+
+<header>
+    <h1>Mon portfolio</h1>
+    <nav>
+        <a href="index.html" data-i18n="nav.accueil">Accueil</a>
+        <a href="index.html#projets-preview" data-i18n="nav.projets">Projets</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang-switcher">
+        <button data-lang="fr" class="lang-btn active">FR</button>
+        <button data-lang="en" class="lang-btn">EN</button>
+        <button data-lang="es" class="lang-btn">ES</button>
+    </div>
+</header>
+
+<main>
+    <section class="about"><h1>Magical Mystery</h1></section>
+    
+
+    <div class="galerie">
+        <button class="fleche fleche-gauche" aria-label="Image précédente">←</button>
+        <img id="image-principale" src="Images/Simply Magic/Menu.png" alt="Magical Mystery">
+        <button class="fleche fleche-droite" aria-label="Image suivante">→</button>
+    </div>
+
+    <div class="miniatures">
+        <img src="Images/Simply Magic/Menu.png" class="miniature active">
+        <img src="Images/Simply Magic/InGame1.png" class="miniature">
+        <img src="Images/Simply Magic/InGame2.png" class="miniature">
+        <img src="Images/Simply Magic/InGame3.png" class="miniature">
+        <img src="Images/Simply Magic/InGame4.png" class="miniature">
+        <img src="Images/Simply Magic/InGame5.png" class="miniature">
+    </div>
+
+    <section class="about">
+        <h2>About the project</h2>
+        <p>Magical Mystery is a point &amp; click adventure game set in a magical and mysterious manor...</p>
+
+        <table class="infos-projet">
+            <tr><th>Project type</th><td>Isometric Point &amp; Click</td></tr>
+            <tr><th>Date</th><td>2022</td></tr>
+            <tr><th>Duration</th><td>4 weeks</td></tr>
+            <tr><th>Role</th><td>Gameplay Programmer and Tools Programmer</td></tr>
+            <tr><th>Team</th><td>11 Programmers &amp; 8 Game Artists</td></tr>
+            <tr><th>Language &amp; Engine</th><td>C / CSFML Library</td></tr>
+            <tr><th>External tools</th><td>-</td></tr>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://github.com/YanisCanera" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/canerayanis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:yanis.canera.dev@gmail.com">Contact</a>
+    </div>
+    <p>&copy; 2026 portfolio Canera Yanis. Tous droits réservés.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const principale = document.getElementById('image-principale');
+    const miniatures = document.querySelectorAll('.miniatures img');
+    let index = 0;
+
+    function afficher(i) {
+        index = (i + miniatures.length) % miniatures.length;
+        principale.src = miniatures[index].src;
+        miniatures.forEach(img => img.classList.remove('active'));
+        miniatures[index].classList.add('active');
+    }
+
+    miniatures.forEach((img, i) => img.addEventListener('click', () => afficher(i)));
+    document.querySelector('.galerie-nav.prev').addEventListener('click', () => afficher(index - 1));
+    document.querySelector('.galerie-nav.next').addEventListener('click', () => afficher(index + 1));
+});
+</script>
+
+<script src="trad.js"></script>
+</body>
+</html>

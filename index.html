@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Canera Yanis</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="accueil.css">
+</head>
+<body>
+
+<header>
+    <h1>Mon portfolio</h1>
+    <nav>
+        <a href="index.html" class="active" data-i18n="nav.accueil">Accueil</a>
+        <a href="#projets-preview" data-i18n="nav.projets">Projets</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang-switcher">
+        <button data-lang="fr" class="lang-btn active">FR</button>
+        <button data-lang="en" class="lang-btn">EN</button>
+    </div>
+</header>
+
+<main>
+    <section>
+        <div class="intro">
+            <h2 data-i18n="hero.title">Bienvenue sur mon portfolio</h2>
+            <p data-i18n="hero.subtitle">Je suis Canera Yanis, un développeur spécialisé dans :</p>
+            <ul>
+                <li>C++</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Python</li>
+                <li>Unreal Engine</li>
+                <li>Réalité Virtuelle</li>
+                <li>Réalité Augmentée</li>
+                <li>Programmeur Gameplay</li>
+            </ul>
+            <p data-i18n="hero.description">Découvrez mes projets et n'hésitez pas à me contacter pour toute collaboration.</p>
+            <a href="#projets-preview" class="btn-cta" data-i18n="hero.cta">Voir mes projets</a>
+            <a href="documents/CV.pdf" download="CV-Canera-Yanis.pdf" target="_blank" class="btn-cta" data-i18n="hero.cta2">Télécharger la lettre de recommandation</a>
+        </div>
+    </section>
+
+    <div class="scroll-indicator">↓</div>
+</main>
+
+<section class="projets-preview" id="projets-preview">
+    <h2 data-i18n="projets.title">Projets</h2>
+    <div class="grid-projets grid-showcase">
+    <article  class="carte-projet">
+        <a href="MagicalMystery.html">
+        <img src="Images/Simply Magic/Illustration.png" alt="Magical Mystery">
+        </a>
+        <div class="carte-overlay">
+            <span class="tag">Game • C++</span>
+             <h3>Magical Mystery</h3>
+        </div>
+    </article>
+    <article class="carte-projet">
+        <a href="WeirdQuest.html">
+        <img src="Images/Weird Quest/Illustration.png" alt="Weird Quest">
+        </a>
+        <div  class="carte-overlay">
+            <span class="tag">Game • C/CSFML</span>
+            <h3>Weird Quest</h3>
+        </div>
+    </article>
+    <article class="carte-projet">
+        <a href="FreakSquad.html">
+        <img src="Images/Freak Squad/Menu.gif" alt="Freak Squad">
+        </a>
+        <div class="carte-overlay">
+            <span class="tag">Game • C++/SFML</span>
+            <h3>Freak Squad</h3>
+        </div>
+    </article>
+    <article class="carte-projet">
+        <a href="Lilo.html">
+        <img src="Images/Lil'O/SplashArt.png" alt="Lil'O">
+        </a>
+        <div class="carte-overlay">
+            <span class="tag">Game • C++/SFML</span>
+            <h3>Lil'O.</h3>
+        </div>
+    </article>
+    <article class="carte-projet">
+        <a href="MiniKnight.html">
+        <img src="Images/MiniKnight/Illustration.png" alt="Mini Knight">
+        </a>
+        <div class="carte-overlay">
+            <span class="tag">Game • Unity</span>
+            <h3>Mini Knight</h3>
+        </div>
+    </article>
+     <article class="carte-projet">
+        <a href="CrushCars.html">
+        <img src="Images/Crush Cars/Menu.png" alt="Crush Cars">
+        </a>
+        <div class="carte-overlay">
+            <span class="tag">Game • Unity</span>
+            <h3>Crush Cars</h3>
+        </div>
+    </article>
+    <article class="carte-projet">
+        <a href="PokeGA.html">
+        <img src="Images/PokeGA/Ecran d'accueil.png" alt="Pokemon Legends GA">
+        </a>
+        <div class="carte-overlay">
+            <span class="tag">Game • Unreal Engine</span>
+            <h3>Pokemon Legends GA</h3>
+        </div>
+    </article>
+    <article class="carte-projet">
+        <a href="Wild31.html">
+        <img src="Images/Wild31/Illustration.png" alt="Wild 31">
+        </a>
+        <div class="carte-overlay">
+            <span class="tag">Game • C++/Unreal Engine</span>
+            <h3>Wild 31</h3>
+        </div>
+    </article>
+   
+
+    
+
+    
+</div>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://github.com/YanisCanera" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/canerayanis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:yanis.canera.dev@gmail.com">Contact</a>
+    </div>
+    <p data-i18n="footer.copyright">&copy; 2026 portfolio Canera Yanis. Tous droits réservés.</p>
+</footer>
+
+<script src="trad.js"></script>
+</body>
+</html>

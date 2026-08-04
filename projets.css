@@ -1,0 +1,162 @@
+main {
+  position: relative;
+  background-color: #14120f;   
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: white;
+  padding-bottom: 350px;
+}
+main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+main > * {
+  position: relative;
+  z-index: 1;
+}
+.projet-page {
+    max-width: 900px;
+    margin: 0 auto; /* centre le bloc dans la page */
+    padding: 40px 20px;
+    color: white;
+}
+
+.galerie {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.galerie img,.galerie video {
+    width: 45%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+}
+
+.fleche {
+    position: absolute;
+    background: rgba(0,0,0,0.4);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.fleche-gauche { left: 10px; }
+.fleche-droite { right: 10px; }
+
+.miniatures {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+    max-width: 900px;
+    margin: 0 auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    /* fondu sur les bords gauche/droite */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        black 40px,
+        black calc(100% - 40px),
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        black 40px,
+        black calc(100% - 40px),
+        transparent 100%
+    );
+}
+
+.miniatures::-webkit-scrollbar {
+    display: none;
+}
+.miniatures.sans-fondu {
+    -webkit-mask-image: none;
+    mask-image: none;
+    padding-left: 12px;
+    padding-right: 12px; /* évite que la dernière miniature soit coupée pile au bord */
+}
+.miniature {
+    flex: 0 0 auto;       /* empêche les miniatures de rétrécir ou de wrap */
+    width: 140px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    opacity: 0.6;
+    border: 2px solid transparent;
+    scroll-snap-align: start;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.miniature.active {
+    opacity: 1;
+    border-color: #7c5cff;
+    transform: scale(1.03);
+}
+
+.title {
+    text-align: center;
+}
+.about {
+    max-width: 900px;
+    margin: 20px auto 60px;
+    padding: 0 20px;
+}
+.about h1 {
+    font-size: 48px;
+    text-align: center;
+    margin: 20px 0;
+}
+.about h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.about > p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+.infos-projet th {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #999;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.infos-projet td {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+@media (max-width: 768px) {
+    .galerie img, .galerie video {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .miniature {
+        width: 100px;
+        height: 65px;
+    }
+}

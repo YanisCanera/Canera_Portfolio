@@ -1,0 +1,141 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  color: #222;
+}
+
+header {
+  background: #14120f;   /* presque noir, cohérent avec le fond sombre du main */
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+   font-size: 20px;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 8px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #d8d4c8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.lang-btn.active {
+  background: #c9a15a;
+  color: #1c1b19;
+  border-color: #c9a15a;
+}
+
+nav {
+  display: flex;
+  gap: 32px;
+}
+nav a {
+   color: #d8d4c8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #c9a15a;   /* ton accent doré, cohérent avec le CTA */
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #c9a15a;
+  transition: width 0.25s ease;
+}
+nav a:hover::after {
+  width: 100%;
+}
+nav a.active {
+  color: #c9a15a;
+}
+
+nav a.active::after {
+  width: 100%;   /* soulignement toujours visible sur la page active */
+}
+
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #14120f;   /* même couleur que le header */
+  color: #8a8579;
+  padding: 24px 40px;
+  text-align: center;
+  font-size: 13px;
+}
+img {
+  max-width: 100%;   /* ne dépasse jamais son conteneur */
+  height: auto;      /* garde les proportions */
+}
+#linkedinfooter {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+.footer-links a {
+  color: #d8d4c8;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #c9a15a;   /* même doré que le reste du site */
+}
+footer p {
+  margin: 0;
+  color: #6b675e;
+  font-size: 12px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+
+@media (max-width: 600px) {
+  .intro {
+    margin: 24px 16px;
+    max-width: none;
+  }
+}
