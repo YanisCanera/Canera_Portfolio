@@ -94,6 +94,19 @@ const translations = {
     "w31.role": "Programmeur gameplay et concepteur technique – génération procédurale de contenu (GPC)",
     "w31.equipe": "10 Programmeurs & 8 Game Artists",
     "w31.langage": "C++/Unreal Engine",
+
+    // Stage Armée
+    "vr.title": "Stage Armée",
+    "vr.desc1": "Stage de six mois en réalité virtuelle et augmentée au sein de l'Armée de l'air et de l'espace.",
+    "vr.desc2": "Responsable de la refonte du système de hand‑tracking en C++ visant à améliorer la précision, la réactivité et la stabilité du tracking.",
+    "vr.desc3": "Conception et implémentation d'un système de reconnaissance gestuelle pour l'interprétation d'actions en VR/AR,ainsi que d'un système d'interaction intégrant retours visuels et logique de gameplay.",
+    "vr.desc2": "Dans une Marseille dystopique rongée par la violence et la corruption, un quartier inspiré du Cours Julien est tombé entre les mains d'une mafia mystérieuse, dont les membres dissimulent leur identité derrière des masques d'animaux. Vous incarnez WILD-31, un singe humanoïde marqué par le chaos, déterminé à faire tomber cette organisation. À travers des ruelles taguées et les toits brûlants de la ville, chaque combat vous rapproche de la vérité. Mais derrière les crocs et les griffes se cache un ennemi bien plus redoutable : l'être humain lui-même.",
+    "vr.type": "Réalité Virtuelle / Réalité Augmentée",
+    "vr.duree": "6 mois - Juillet 2025 à Janvier 2026",
+    "vr.role": "Programmeur VR/AR",
+    "vr.equipe": "3 Programmeurs & 3 Game Artists",
+    "vr.langage": "C++ / Unreal Engine / Meta Quest",
+    "vr.tools": "Android Studio",
   },
   en: {
     "hero.title": "Welcome to my portfolio",
@@ -181,6 +194,19 @@ const translations = {
     "w31.role": "Gameplay programmer and technical designer – procedural content generation (PCG)",
     "w31.equipe": "10 Programmers & 8 Game Artists",
     "w31.langage": "C++/Unreal Engine",
+
+    // VR Army Internship
+    "vr.title": "Army Internship",
+    "vr.desc1": "Six-month internship in virtual and augmented reality with the French Air and Space Force.",
+    "vr.desc2": "Responsible for reworking the hand-tracking system in C++, aimed at improving tracking precision, responsiveness, and stability.",
+    "vr.desc3": "Design and implementation of a gesture recognition system for interpreting actions in VR/AR, as well as an interaction system incorporating visual feedback and gameplay logic.",
+    "vr.type": "Virtual Reality / Augmented Reality",
+    "vr.duree": "6 months - July 2025 to January 2026",
+    "vr.role": "VR/AR Programmer",
+    "vr.equipe": "3 Programmers & 3 Game Artists",
+    "vr.langage": "C++ / Unreal Engine / Meta Quest",
+    "vr.tools": "Android Studio",
+
   },
 };
 
