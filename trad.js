@@ -99,7 +99,7 @@ const translations = {
     "vr.title": "Stage Armée",
     "vr.desc1": "Stage de six mois en réalité virtuelle et augmentée au sein de l'Armée de l'air et de l'espace.",
     "vr.desc2": "Responsable de la refonte du système de hand‑tracking en C++ visant à améliorer la précision, la réactivité et la stabilité du tracking.",
-    "vr.desc3": "Conception et implémentation d'un système de reconnaissance gestuelle pour l'interprétation d'actions en VR/AR,ainsi que d'un système d'interaction intégrant retours visuels et logique de gameplay.",
+    "vr.desc3": "Conception et implémentation d'un système de reconnaissance gestuelle pour l'interprétation d'actions en VR/AR, ainsi que d'un système d'interaction intégrant retours visuels et logique de gameplay.",
     "vr.type": "Réalité Virtuelle / Réalité Augmentée",
     "vr.duree": "6 mois - Juillet 2025 à Janvier 2026",
     "vr.role": "Programmeur VR/AR",
