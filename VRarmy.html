@@ -50,6 +50,25 @@
     <p data-i18n="footer.copyright">&copy; 2026 portfolio Canera Yanis. Tous droits réservés.</p>
 </footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const principale = document.getElementById('image-principale');
+    const miniatures = document.querySelectorAll('.miniatures img');
+    let index = 0;
 
+    function afficher(i) {
+        index = (i + miniatures.length) % miniatures.length;
+        principale.src = miniatures[index].src;
+        miniatures.forEach(img => img.classList.remove('active'));
+        miniatures[index].classList.add('active');
+    }
+
+    miniatures.forEach((img, i) => img.addEventListener('click', () => afficher(i)));
+    document.querySelector('.fleche-gauche').addEventListener('click', () => afficher(index - 1));
+    document.querySelector('.fleche-droite').addEventListener('click', () => afficher(index + 1));
+});
+</script>
+
+<script src="trad.js"></script>
 </body>
 </html>
