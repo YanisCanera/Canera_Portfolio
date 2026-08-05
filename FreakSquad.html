@@ -68,46 +68,20 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const principale = document.getElementById('image-principale');
-    const miniatures = document.querySelectorAll('.miniatures .miniature');
+    const miniatures = document.querySelectorAll('.miniatures img');
     let index = 0;
 
     function afficher(i) {
         index = (i + miniatures.length) % miniatures.length;
-        const elementActuel = miniatures[index];
-
-        // On vide le conteneur sans le remplacer
-        principale.innerHTML = '';
-
-        if (elementActuel.dataset.type === 'video') {
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${elementActuel.dataset.videoId}`;
-            iframe.title = "Trailer Freak Squad";
-            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-            iframe.allowFullscreen = true;
-            principale.appendChild(iframe);
-
-            // On s’assure que le conteneur garde sa classe vidéo
-            principale.className = 'video-wrapper';
-
-        } else {
-            const img = document.createElement('img');
-            img.src = elementActuel.src;
-            img.className = 'media-principal';
-            principale.appendChild(img);
-
-            // On change la classe pour l’image
-            principale.className = 'media-principal';
-        }
-
-        miniatures.forEach(el => el.classList.remove('active'));
+        principale.src = miniatures[index].src;
+        miniatures.forEach(img => img.classList.remove('active'));
         miniatures[index].classList.add('active');
     }
 
-    miniatures.forEach((el, i) => el.addEventListener('click', () => afficher(i)));
+    miniatures.forEach((img, i) => img.addEventListener('click', () => afficher(i)));
     document.querySelector('.fleche-gauche').addEventListener('click', () => afficher(index - 1));
     document.querySelector('.fleche-droite').addEventListener('click', () => afficher(index + 1));
 });
-
 </script>
 
 <script src="trad.js"></script>
